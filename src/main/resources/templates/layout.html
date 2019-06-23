@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Layout</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+                <a class="brand" th:href="@{/}"> Home </a>
+				<ul class="nav">
+					<li><a th:href="@{/}" href="users.html"> Users </a></li>
+				</ul>
+			</div>
+		</div>
+		<h1 th:fragment="header">Layout</h1>
+		<div th:fragment="content">Fake content</div>
+	</div>
+</body>
+</html>
