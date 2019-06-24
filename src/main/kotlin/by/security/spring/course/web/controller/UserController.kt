@@ -2,6 +2,7 @@ package by.security.spring.course.web.controller
 
 import by.security.spring.course.domain.model.User
 import by.security.spring.course.domain.repository.UserRepository
+import by.security.spring.course.web.model.Message
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.reactive.result.view.Rendering
+import reactor.core.publisher.toMono
 import javax.validation.Valid
 
 
@@ -41,7 +43,7 @@ class UserController(private val userRepository: UserRepository) {
             return Rendering.view("users/form").modelAttribute("formErrors", result.allErrors).build()
         }
         this.userRepository.save(user).let {
-          return  Rendering.redirectTo("/${it.id}").modelAttribute("globalMessage", "Successfully created a new user").build()
+          return  Rendering.redirectTo("/${it.id}").modelAttribute("globalMessage","Successfully created a new user").build()
         }
     }
 

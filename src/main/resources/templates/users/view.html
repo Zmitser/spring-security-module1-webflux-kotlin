@@ -7,8 +7,7 @@
 <body>
 	<h1 layout:fragment="header">Users : Create</h1>
 	<div layout:fragment="content" class="container">
-		<div class="alert alert-success" th:if="${globalMessage}"
-			th:text="${globalMessage}">Some Success message</div>
+		<div class="alert alert-success" th:text="${globalMessage.payload}">Some Success message</div>
 		<div class="pull-right">
 			<a th:href="@{/}" href="list.html"> Users </a>
 		</div>
