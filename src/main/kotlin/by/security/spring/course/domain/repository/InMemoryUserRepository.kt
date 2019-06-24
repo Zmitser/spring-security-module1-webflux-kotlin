@@ -17,16 +17,14 @@ class InMemoryUserRepository(
 
     override fun findAll(): Flux<User> = this.users.values.toFlux()
 
-    override fun save(user: User): Mono<User> {
-        return user.toMono().map {
-           this.users[it.id ?: counter.incrementAndGet()] = it
-            it
+    override fun save(user: User): User {
+        user.id = user.id ?: counter.incrementAndGet()
+        this.users[user.id] = user
+        return user
        }
-    }
 
 
     override fun findUser(id: Long): Mono<User>? = this.users[id]?.toMono()
-
 
     override fun deleteUser(id: Long) = this.users.remove(id)?.toMono()
 }

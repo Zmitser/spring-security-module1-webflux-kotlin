@@ -9,7 +9,7 @@ interface UserRepository {
 
     fun findAll(): Flux<User>
 
-    fun save(user: User): Mono<User>
+    fun save(user: User): User
 
     fun findUser(id: Long): Mono<User>?
 
