@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
 <head>
-  <title>Layout</title>
-  <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+    <title>Layout</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
 </head>
 <body>
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" th:href="@{/}" >Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a  class="nav-link" th:href="@{/}" href="users.html"> Users </a></li>
-      </ul>
-    </div>
-  </nav>
-  <h1 layout:fragment="header">Layout</h1>
-  <div layout:fragment="content">Fake content</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" th:href="@{/}" href="users.html"> Users </a></li>
+            </ul>
+        </div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+<!--                <form class="form-inline" action="/logout" method="post">-->
+<!--                    <button class="btn btn-link" type="submit">Logout!</button>-->
+<!--                </form>-->
+                <a  class="nav-item" th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <h1 layout:fragment="header">Layout</h1>
+    <div layout:fragment="content">Fake content</div>
 </div>
 </body>
 </html>

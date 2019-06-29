@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.reactive.result.view.Rendering
 
 @Controller
-class IndexController {
+class LoginController {
 
 
     @RequestMapping("/login")
