@@ -25,13 +25,14 @@ class SecurityConfig {
     fun springSecurityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         http
                 .authorizeExchange()
+                .pathMatchers("/login").permitAll()
+                .pathMatchers("/favicon.ico", "/css/**", "/webjars/**").permitAll()
                 .pathMatchers("/delete/**")
                 .hasAuthority("ADMIN")
                 .anyExchange().authenticated()
                 .and()
                 .csrf().disable()
-                .httpBasic().and()
-                .formLogin()
+                .formLogin().loginPage("/login")
         return http.build()
     }
 }
