@@ -5,7 +5,7 @@
 <head>
     <title>Login Page</title>
 
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
 
 </head>
 <body>
@@ -32,7 +32,9 @@
         </div>
         <div class="form-actions col-xs-offset-2 col-xs-10">
             <button type="submit" class="btn btn-primary">Sign In</button>
+            <a class="btn brn-link" th:href="@{/signup}"> Sign Up</a>
         </div>
+
     </form>
 </div>
 

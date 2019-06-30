@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
 <head>
     <title>Layout</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
 </head>
 <body>
 <div class="container">
@@ -19,10 +19,10 @@
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-<!--                <form class="form-inline" action="/logout" method="post">-->
-<!--                    <button class="btn btn-link" type="submit">Logout!</button>-->
-<!--                </form>-->
-                <a  class="nav-item" th:href="@{/logout}">Logout</a>
+                <form class="form-inline" action="/logout" method="post">
+                    <button class="btn btn-link" type="submit">Logout!</button>
+                </form>
+<!--                <a  class="nav-item" th:href="@{/logout}">Logout</a>-->
             </li>
         </ul>
     </nav>

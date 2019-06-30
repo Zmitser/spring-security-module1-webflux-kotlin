@@ -1,18 +1,13 @@
 package by.security.spring.course.domain.repository
 
 import by.security.spring.course.domain.model.User
-import reactor.core.publisher.Flux
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository
+import org.springframework.stereotype.Repository
 import reactor.core.publisher.Mono
 
+@Repository
+interface UserRepository : ReactiveMongoRepository<User, Long> {
 
-interface UserRepository {
-
-    fun findAll(): Flux<User>
-
-    fun save(user: User): User
-
-    fun findUser(id: Long): Mono<User>?
-
-    fun deleteUser(id: Long): Mono<User>?
+    fun findByEmail(email: String?): Mono<User>
 
 }
