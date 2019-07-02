@@ -1,9 +1,11 @@
 package by.security.spring.course.domain.model
 
 import org.bson.types.ObjectId
+import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.io.Serializable
+import java.time.LocalDateTime
 import java.util.*
 import javax.validation.constraints.NotEmpty
 
@@ -12,14 +14,17 @@ import javax.validation.constraints.NotEmpty
 data class User(
         @Id
         var id: ObjectId?,
-//        @NotEmpty(message = "Email is required.")
+        @NotEmpty(message = "Email is required.")
         var email: String?,
-//        @NotEmpty(message = "Password is required.")
+        @NotEmpty(message = "Password is required.")
+        var username: String?,
+        @NotEmpty(message = "Password is required.")
         var password: String?,
         @Transient
-//        @NotEmpty(message = "Password confirmation is required.")
+        @NotEmpty(message = "Password confirmation is required.")
         var passwordConfirmation: String?,
-        var created: Calendar? = Calendar.getInstance()) : Serializable {
+        @CreatedDate
+        var created: LocalDateTime? = LocalDateTime.now()) : Serializable {
     constructor() : this(null, null, null, null, null)
-    constructor(email: String?, password: String?, passwordConfirmation: String?) : this(null,  email, password, passwordConfirmation)
+    constructor(email: String?, username: String?, password: String?, passwordConfirmation: String?) : this(null, email, username, password, passwordConfirmation)
 }

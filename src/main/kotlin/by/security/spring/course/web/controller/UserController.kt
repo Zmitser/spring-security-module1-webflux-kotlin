@@ -19,12 +19,9 @@ import javax.validation.Valid
 @RequestMapping("/")
 class UserController(private val userRepository: UserRepository) {
 
-    @RequestMapping(method = [RequestMethod.GET])
-    fun list(): Rendering = Rendering.view("/users/list").modelAttribute("users", userRepository.findAll()).build()
-
 
     @RequestMapping("{id}")
-    fun view(@PathVariable("id") id: Long): Rendering {
+    fun view(@PathVariable("id") id: String): Rendering {
         userRepository.findById(id).let {
             return Rendering.view("users/view")
                     .modelAttribute("user", it)
@@ -42,19 +39,19 @@ class UserController(private val userRepository: UserRepository) {
             return Rendering.view("users/form").modelAttribute("formErrors", result.allErrors).build()
         }
         this.userRepository.save(user).let {
-          return  Rendering.redirectTo("").modelAttribute("globalMessage","Successfully created a new user").build()
+          return  Rendering.redirectTo("/").modelAttribute("globalMessage","Successfully created a new user").build()
         }
     }
 
     @RequestMapping(value = ["delete/{id}"])
-    fun delete(@PathVariable("id") id: Long): Rendering? {
+    fun delete(@PathVariable("id") id: String): Rendering? {
         return userRepository.deleteById(id).let {
             Rendering.redirectTo("/").build()
         }
     }
 
     @RequestMapping(value = ["modify/{id}"], method = [RequestMethod.GET])
-    fun modifyForm(@PathVariable("id") id: Long): Rendering {
+    fun modifyForm(@PathVariable("id") id: String): Rendering {
         userRepository.findById(id).let {
             return Rendering.view("users/form").modelAttribute("user", it).build()
         }
