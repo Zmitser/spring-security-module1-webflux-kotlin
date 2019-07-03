@@ -18,6 +18,27 @@ class UserRouter(val userHandler: UserHandler) {
                 contentType(MediaType.TEXT_HTML)
                 userHandler.list(it)
             }
+            GET("/users/{id}") {
+                contentType(MediaType.TEXT_HTML)
+                userHandler.view(it)
+            }
+            GET("/create/form") {
+                contentType(MediaType.TEXT_HTML)
+                userHandler.createForm(it)
+            }
+            GET("/delete/{id}") {
+                contentType(MediaType.TEXT_HTML)
+                userHandler.delete(it)
+            }
+            GET("/modify/{id}"){
+                contentType(MediaType.TEXT_HTML)
+                userHandler.modifyForm(it)
+            }
+            POST("/save") {
+                accept(MediaType.APPLICATION_FORM_URLENCODED)
+                contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                userHandler.create(it)
+            }
         }
     }
 }

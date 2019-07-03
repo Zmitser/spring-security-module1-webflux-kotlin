@@ -13,14 +13,13 @@ import javax.validation.constraints.NotEmpty
 @Document
 data class User(
         @Id
-        var id: ObjectId?,
+        var id: String?,
         @NotEmpty(message = "Email is required.")
         var email: String?,
         @NotEmpty(message = "Password is required.")
         var username: String?,
         @NotEmpty(message = "Password is required.")
         var password: String?,
-        @Transient
         @NotEmpty(message = "Password confirmation is required.")
         var passwordConfirmation: String?,
         @CreatedDate

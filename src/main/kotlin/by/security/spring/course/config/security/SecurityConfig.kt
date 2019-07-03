@@ -24,7 +24,7 @@ class SecurityConfig(val userRepository: UserRepository) {
                 .authorizeExchange()
                 .pathMatchers("/favicon.ico", "/css/**", "/webjars/**").permitAll()
                 .pathMatchers("/login", "/signup", "/user/register").permitAll()
-                .pathMatchers("/delete/**").hasAuthority("ADMIN")
+//                .pathMatchers("/delete/**").hasAuthority("ADMIN")
                 .anyExchange().authenticated()
                 .and()
                 .csrf().disable()
