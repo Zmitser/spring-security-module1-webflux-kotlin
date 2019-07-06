@@ -1,12 +1,10 @@
 package by.security.spring.course.domain.model
 
-import org.bson.types.ObjectId
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.io.Serializable
 import java.time.LocalDateTime
-import java.util.*
 import javax.validation.constraints.NotEmpty
 
 
@@ -23,7 +21,9 @@ data class User(
         @NotEmpty(message = "Password confirmation is required.")
         var passwordConfirmation: String?,
         @CreatedDate
-        var created: LocalDateTime? = LocalDateTime.now()) : Serializable {
+        var created: LocalDateTime? = LocalDateTime.now()
+//        var enabled: Boolean
+) : Serializable {
     constructor() : this(null, null, null, null, null)
     constructor(email: String?, username: String?, password: String?, passwordConfirmation: String?) : this(null, email, username, password, passwordConfirmation)
 }
